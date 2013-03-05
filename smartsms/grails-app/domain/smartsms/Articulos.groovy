@@ -6,7 +6,7 @@ class Articulos {
     String descripcion
     float precio
     int existencia
-    static belongsTo = [idotroarticulo: Articulos]
+    static belongsTo = [otroarticulo: Articulos]
 
     static constraints = {
         nombre blank: false, nullable: false

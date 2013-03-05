@@ -23,11 +23,12 @@ class ArticulosController {
         def articulosInstance = new Articulos(params)
         if (!articulosInstance.save(flush: true)) {
             render(view: "create", model: [articulosInstance: articulosInstance])
+            System.out.println(params);
             return
         }
 
         flash.message = message(code: 'default.created.message', args: [message(code: 'articulos.label', default: 'Articulos'), articulosInstance.id])
-        redirect(action: "show", id: articulosInstance.id)
+         redirect(action: "show", id: articulosInstance.id)
     }
 
     def show(Long id) {
