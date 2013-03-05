@@ -1,10 +1,11 @@
 package smartsms
 
-class Supervisorvendedores {
+class SupervisorVendedores {
     
     int id
-    int idSupervisor
-    int idVendedor
+    static belongsTo = [idSupervisor:Supervisores, idVendedor:Vendedores]
+    
+    
     static constraints = {
         id(blank:false, unique: true)
         idSupervisor(blank:false)
