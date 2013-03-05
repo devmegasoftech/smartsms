@@ -1,8 +1,8 @@
 dataSource {
 	pooled = true
 	driverClassName = "com.mysql.jdbc.Driver"
-	username = "remoto"
-	password = "remoto"
+	username = "smartsms"
+	password = "smartsms"
 }
 hibernate {
 	cache.use_second_level_cache=true
@@ -15,21 +15,21 @@ environments {
 	development {
 		dataSource {
 			dbCreate = "create-drop" // one of 'create', 'create-drop','update'
-			url = "jdbc:mysql://localhost:3306/smartsms"
+			url = "jdbc:mysql://192.168.0.11:3306/smartsms"
 		}
 	}
 
 	test {
 		dataSource {
 			dbCreate = "create-drop"
-			url = "jdbc:mysql://localhost:3306/smartsms"
+			url = "jdbc:mysql://192.168.0.11:3306/smartsms"
 		}
 	}
 	
 	production {
 		dataSource {
 			dbCreate = "create-drop"
-			url = "jdbc:mysql://localhost:3306/smartsms"
+			url = "jdbc:mysql://192.168.0.11:3306/smartsms"
 		}
 	}
 }
