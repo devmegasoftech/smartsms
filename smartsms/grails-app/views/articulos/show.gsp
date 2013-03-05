@@ -63,7 +63,7 @@
 				<li class="fieldcontain">
 					<span id="idotroarticulo-label" class="property-label"><g:message code="articulos.idotroarticulo.label" default="Idotroarticulo" /></span>
 					
-						<span class="property-value" aria-labelledby="idotroarticulo-label"><g:fieldValue bean="${articulosInstance}" field="idotroarticulo"/></span>
+						<span class="property-value" aria-labelledby="idotroarticulo-label"><g:link controller="articulos" action="show" id="${articulosInstance?.idotroarticulo?.id}">${articulosInstance?.idotroarticulo?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

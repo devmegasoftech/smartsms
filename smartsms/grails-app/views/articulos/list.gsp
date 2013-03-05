@@ -32,7 +32,7 @@
 					
 						<g:sortableColumn property="existencia" title="${message(code: 'articulos.existencia.label', default: 'Existencia')}" />
 					
-						<g:sortableColumn property="idotroarticulo" title="${message(code: 'articulos.idotroarticulo.label', default: 'Idotroarticulo')}" />
+						<th><g:message code="articulos.idotroarticulo.label" default="Idotroarticulo" /></th>
 					
 					</tr>
 				</thead>
