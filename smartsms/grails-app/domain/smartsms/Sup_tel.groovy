@@ -1,6 +1,7 @@
 package smartsms
 
-class Sup_tel {asdfasdf
+class Sup_tel {
+    //asdfasdf
 
     static constraints = {
     }
