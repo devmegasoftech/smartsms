@@ -1,7 +1,7 @@
 package smartsms
 
 class Vendedores {
-    int id
+    
     String nombre
     String apellido
     String direccion
