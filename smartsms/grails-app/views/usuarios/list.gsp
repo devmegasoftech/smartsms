@@ -1,5 +1,5 @@
 
-
+<%@ page import="smartsms.Usuarios" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -24,7 +24,17 @@
 				<thead>
 					<tr>
 					
-						<g:sortableColumn property="codigo" title="${message(code: 'usuarios.codigo.label', default: 'Codigo')}" />
+						<th><g:message code="usuarios.idtipousuario.label" default="Idtipousuario" /></th>
+					
+						<g:sortableColumn property="usuario" title="${message(code: 'usuarios.usuario.label', default: 'Usuario')}" />
+					
+						<g:sortableColumn property="clave" title="${message(code: 'usuarios.clave.label', default: 'Clave')}" />
+					
+						<g:sortableColumn property="activado" title="${message(code: 'usuarios.activado.label', default: 'Activado')}" />
+					
+						<g:sortableColumn property="aleatorio" title="${message(code: 'usuarios.aleatorio.label', default: 'Aleatorio')}" />
+					
+						<g:sortableColumn property="fechacreacion" title="${message(code: 'usuarios.fechacreacion.label', default: 'Fechacreacion')}" />
 					
 					</tr>
 				</thead>
@@ -32,7 +42,17 @@
 				<g:each in="${usuariosInstanceList}" status="i" var="usuariosInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${usuariosInstance.id}">${fieldValue(bean: usuariosInstance, field: "codigo")}</g:link></td>
+						<td><g:link action="show" id="${usuariosInstance.id}">${fieldValue(bean: usuariosInstance, field: "idtipousuario")}</g:link></td>
+					
+						<td>${fieldValue(bean: usuariosInstance, field: "usuario")}</td>
+					
+						<td>${fieldValue(bean: usuariosInstance, field: "clave")}</td>
+					
+						<td><g:formatBoolean boolean="${usuariosInstance.activado}" /></td>
+					
+						<td>${fieldValue(bean: usuariosInstance, field: "aleatorio")}</td>
+					
+						<td>${fieldValue(bean: usuariosInstance, field: "fechacreacion")}</td>
 					
 					</tr>
 				</g:each>

@@ -1,5 +1,5 @@
 
-
+<%@ page import="smartsms.Usuarios" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -23,11 +23,74 @@
 			</g:if>
 			<ol class="property-list usuarios">
 			
-				<g:if test="${usuariosInstance?.codigo}">
+				<g:if test="${usuariosInstance?.idtipousuario}">
 				<li class="fieldcontain">
-					<span id="codigo-label" class="property-label"><g:message code="usuarios.codigo.label" default="Codigo" /></span>
+					<span id="idtipousuario-label" class="property-label"><g:message code="usuarios.idtipousuario.label" default="Idtipousuario" /></span>
 					
-						<span class="property-value" aria-labelledby="codigo-label"><g:fieldValue bean="${usuariosInstance}" field="codigo"/></span>
+						<span class="property-value" aria-labelledby="idtipousuario-label"><g:link controller="tiposUsuarios" action="show" id="${usuariosInstance?.idtipousuario?.id}">${usuariosInstance?.idtipousuario?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${usuariosInstance?.usuario}">
+				<li class="fieldcontain">
+					<span id="usuario-label" class="property-label"><g:message code="usuarios.usuario.label" default="Usuario" /></span>
+					
+						<span class="property-value" aria-labelledby="usuario-label"><g:fieldValue bean="${usuariosInstance}" field="usuario"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${usuariosInstance?.clave}">
+				<li class="fieldcontain">
+					<span id="clave-label" class="property-label"><g:message code="usuarios.clave.label" default="Clave" /></span>
+					
+						<span class="property-value" aria-labelledby="clave-label"><g:fieldValue bean="${usuariosInstance}" field="clave"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${usuariosInstance?.activado}">
+				<li class="fieldcontain">
+					<span id="activado-label" class="property-label"><g:message code="usuarios.activado.label" default="Activado" /></span>
+					
+						<span class="property-value" aria-labelledby="activado-label"><g:formatBoolean boolean="${usuariosInstance?.activado}" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${usuariosInstance?.aleatorio}">
+				<li class="fieldcontain">
+					<span id="aleatorio-label" class="property-label"><g:message code="usuarios.aleatorio.label" default="Aleatorio" /></span>
+					
+						<span class="property-value" aria-labelledby="aleatorio-label"><g:fieldValue bean="${usuariosInstance}" field="aleatorio"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${usuariosInstance?.fechacreacion}">
+				<li class="fieldcontain">
+					<span id="fechacreacion-label" class="property-label"><g:message code="usuarios.fechacreacion.label" default="Fechacreacion" /></span>
+					
+						<span class="property-value" aria-labelledby="fechacreacion-label"><g:fieldValue bean="${usuariosInstance}" field="fechacreacion"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${usuariosInstance?.fechaultimoacceso}">
+				<li class="fieldcontain">
+					<span id="fechaultimoacceso-label" class="property-label"><g:message code="usuarios.fechaultimoacceso.label" default="Fechaultimoacceso" /></span>
+					
+						<span class="property-value" aria-labelledby="fechaultimoacceso-label"><g:fieldValue bean="${usuariosInstance}" field="fechaultimoacceso"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${usuariosInstance?.foto}">
+				<li class="fieldcontain">
+					<span id="foto-label" class="property-label"><g:message code="usuarios.foto.label" default="Foto" /></span>
+					
+						<span class="property-value" aria-labelledby="foto-label"><g:fieldValue bean="${usuariosInstance}" field="foto"/></span>
 					
 				</li>
 				</g:if>
