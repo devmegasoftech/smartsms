@@ -7,10 +7,10 @@ class UsuariosController {
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index() {
-        if(session.user=="admin")
-            redirect(action: "list", params: params)
-            else
-            render "Debe Registrarse para ingresar!"
+        if(session.user!="admin")
+            render (view:"index")
+        else
+           redirect(action: "list")
     }
 
     def list(Integer max) {
@@ -21,7 +21,8 @@ class UsuariosController {
             [usuariosInstanceList: Usuarios.list(params), usuariosInstanceTotal: Usuarios.count()]
          }
          else
-         render "Debe Registrarse para ingresar!"
+         redirect(action: "index")
+         
     }
 
     def create() {
@@ -110,19 +111,21 @@ class UsuariosController {
     }
     
     def login={
-        if(params.username=="admin" && params.password == "admin"){
+        def usuario= Usuarios.findByUsuarioAndClave(params.username, params.password)
+        if(usuario){
             
             session.user="admin"
-            
+            //redirect(action: "list", params: params)
+            render("<script>setTimeout(\"window.location = 'list'\",1000); \$('.form').css('box-shadow','inset 0 0 10px 2px rgba(0,255,0,0.25), 0 0 50px 10px rgba(0,255,0,0.3)'); </script>");
         }
         else
         {
-            flash.message="Error!"
+            render ("<script> \$('#frmLogin').effect('shake', { times:3 }, 70); setTimeout(\" \$('.alert').fadeIn(1000);\",500); \$('.form').css('box-shadow','inset 0 0 10px 2px rgba(255,0,0,0.25), 0 0 50px 10px rgba(255,0,0,0.7)'); </script>")
         }
-        redirect(action:'list')
+        
     }
     def logout= {
         session.user=null
-        redirect(action:'index')
+        redirect(action:'list')
     }
 }

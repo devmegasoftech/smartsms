@@ -7,4 +7,8 @@ class TiposUsuarios {
         id(blank:false, unique:true)
         descripcion(blank:false, unique:true)
     }
+    
+    String toString(){
+        return descripcion
+    }
 }

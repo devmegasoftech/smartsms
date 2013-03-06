@@ -1,5 +1,6 @@
 
 <%@ page import="smartsms.Usuarios" %>
+<%@ page import="smartsms.TiposUsuarios" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -13,7 +14,7 @@
 		<a href="#list-usuarios" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+				<li><a class="home" href="${createLink(uri: '/usuarios')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
@@ -29,7 +30,8 @@
 				<thead>
 					<tr>
 					
-						<th><g:message code="usuarios.idtipousuario.label" default="Idtipousuario" /></th>
+                                          <th>#</th>
+                                                <th><g:message code="usuarios.idtipousuario.label" default="Tipo" /></th>
 					
 						<g:sortableColumn property="usuario" title="${message(code: 'usuarios.usuario.label', default: 'Usuario')}" />
 					
@@ -44,10 +46,11 @@
 					</tr>
 				</thead>
 				<tbody>
+                                  
 				<g:each in="${usuariosInstanceList}" status="i" var="usuariosInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
-						<td><g:link action="show" id="${usuariosInstance.id}">${fieldValue(bean: usuariosInstance, field: "idtipousuario")}</g:link></td>
+                                          <td><g:link action="show" id="${usuariosInstance.id}">${i+1}</g:link></td>
+						<td>${fieldValue(bean: usuariosInstance, field: "idtipousuario")}</td>
 					
 						<td>${fieldValue(bean: usuariosInstance, field: "usuario")}</td>
 					
