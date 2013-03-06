@@ -16,6 +16,6 @@ class Usuarios {
         id(blank:false, unique:true)
         idtipousuario(blank:false)
         usuario(blank:false)
-        clave(blank:false)
+        clave(blank:false, password:true)
     }
 }

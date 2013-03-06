@@ -23,7 +23,7 @@
 		<g:message code="usuarios.clave.label" default="Clave" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="clave" required="" value="${usuariosInstance?.clave}"/>
+	<g:field type="password" name="clave" required="" value="${usuariosInstance?.clave}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: usuariosInstance, field: 'activado', 'error')} ">
