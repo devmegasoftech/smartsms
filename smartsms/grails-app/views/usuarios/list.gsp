@@ -8,6 +8,8 @@
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
+          
+         
 		<a href="#list-usuarios" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
@@ -20,6 +22,9 @@
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
+                        <g:if test="${session.user}">
+                          <div class="message" role="status">Usted inicio sesion como: ${session.user} | <g:link action="logout"> Logout</g:link></div>
+                        </g:if>
 			<table>
 				<thead>
 					<tr>

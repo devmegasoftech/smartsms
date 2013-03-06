@@ -7,12 +7,21 @@ class UsuariosController {
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index() {
-        redirect(action: "list", params: params)
+        if(session.user=="admin")
+            redirect(action: "list", params: params)
+            else
+            render "Debe Registrarse para ingresar!"
     }
 
     def list(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        [usuariosInstanceList: Usuarios.list(params), usuariosInstanceTotal: Usuarios.count()]
+        
+         if(session.user=="admin")
+         {
+            params.max = Math.min(max ?: 10, 100)
+            [usuariosInstanceList: Usuarios.list(params), usuariosInstanceTotal: Usuarios.count()]
+         }
+         else
+         render "Debe Registrarse para ingresar!"
     }
 
     def create() {
@@ -98,5 +107,22 @@ class UsuariosController {
             flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'usuarios.label', default: 'Usuarios'), id])
             redirect(action: "show", id: id)
         }
+    }
+    
+    def login={
+        if(params.username=="admin" && params.password == "admin"){
+            
+            session.user="admin"
+            
+        }
+        else
+        {
+            flash.message="Error!"
+        }
+        redirect(action:'list')
+    }
+    def logout= {
+        session.user=null
+        redirect(action:'index')
     }
 }
