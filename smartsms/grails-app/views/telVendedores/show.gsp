@@ -23,20 +23,20 @@
 			</g:if>
 			<ol class="property-list telVendedores">
 			
-				<g:if test="${telVendedoresInstance?.idVendedor}">
-				<li class="fieldcontain">
-					<span id="idVendedor-label" class="property-label"><g:message code="telVendedores.idVendedor.label" default="Id Vendedor" /></span>
-					
-						<span class="property-value" aria-labelledby="idVendedor-label"><g:link controller="vendedores" action="show" id="${telVendedoresInstance?.idVendedor?.id}">${telVendedoresInstance?.idVendedor?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${telVendedoresInstance?.telefono}">
 				<li class="fieldcontain">
 					<span id="telefono-label" class="property-label"><g:message code="telVendedores.telefono.label" default="Telefono" /></span>
 					
 						<span class="property-value" aria-labelledby="telefono-label"><g:fieldValue bean="${telVendedoresInstance}" field="telefono"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${telVendedoresInstance?.idVendedor}">
+				<li class="fieldcontain">
+					<span id="idVendedor-label" class="property-label"><g:message code="telVendedores.idVendedor.label" default="Id Vendedor" /></span>
+					
+						<span class="property-value" aria-labelledby="idVendedor-label"><g:link controller="vendedores" action="show" id="${telVendedoresInstance?.idVendedor?.id}">${telVendedoresInstance?.idVendedor?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
