@@ -103,13 +103,13 @@ class UsuariosController {
         try {
             usuariosInstance.delete(flush: true)
             flash.message = message(code: 'default.deleted.message', args: [message(code: 'usuarios.label', default: 'Usuarios'), id])
-            render("<script>alert('a2');");
+            render("<script>alert('a2');</script>");
             redirect(action: "list")
             
         }
         catch (DataIntegrityViolationException e) {
             flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'usuarios.label', default: 'Usuarios'), id])
-            render("<script>alert('a3');");
+            render("<script>alert('a3');</script>");
             redirect(action: "show", id: id)
         }
        
