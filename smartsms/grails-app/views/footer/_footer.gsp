@@ -9,26 +9,26 @@
 		<footer  >
 			<p style="padding-left: 2%;">Demo!</p>
 		</footer>
-	    <script src="js/bootstrap-transition.js"></script>
-	    <script src="js/bootstrap-alert.js"></script>
-	    <script src="js/bootstrap-modal.js"></script>
-	    <script src="js/bootstrap-dropdown.js"></script>
-	    <script src="js/bootstrap-scrollspy.js"></script>
-	    <script src="js/bootstrap-tab.js"></script>
-	    <script src="js/bootstrap-tooltip.js"></script>
-	    <script src="js/bootstrap-popover.js"></script>
-	    <script src="js/bootstrap-button.js"></script>
-	    <script src="js/bootstrap-collapse.js"></script>
-	    <script src="js/bootstrap-carousel.js"></script>
-	    <script src="js/bootstrap-typeahead.js"></script>
-	    <script src="js/prefixfree.min.js"></script>
-    	<script src="js/jquery.validate.js"></script>
-    	<script src="js/jquery-ui.min.js"></script>
-    	<script type="text/javascript" charset="utf-8" language="javascript" src="js/jquery.dataTables.js"></script>
-    	<script type="text/javascript" charset="utf-8" language="javascript" src="js/DT_bootstrap.js"></script>
-    	<script type="text/javascript" src="js/jquery.scrollto.js"></script>
-    	<script type="text/javascript" src="js/highcharts.js"></script> 
-		<script type="text/javascript" src="js/modules/exporting.js"></script>
+	    <script src="${resource(dir: 'js', file: 'bootstrap-transition.js')}"></script>
+	    <script src="${resource(dir: 'js', file: 'bootstrap-alert.js')}"></script>
+	    <script src="${resource(dir: 'js', file: 'bootstrap-modal.js')}"></script>
+	    <script src="${resource(dir: 'js', file: 'bootstrap-dropdown.js')}"></script>
+	    <script src="${resource(dir: 'js', file: 'bootstrap-scrollspy.js')}"></script>
+	    <script src="${resource(dir: 'js', file: 'bootstrap-tab.js')}"></script>
+	    <script src="${resource(dir: 'js', file: 'bootstrap-tooltip.js')}"></script>
+	    <script src="${resource(dir: 'js', file: 'bootstrap-popover.js')}"></script>
+	    <script src="${resource(dir: 'js', file: 'bootstrap-button.js')}"></script>
+	    <script src="${resource(dir: 'js', file: 'bootstrap-collapse.js')}"></script>
+	    <script src="${resource(dir: 'js', file: 'bootstrap-carousel.js')}"></script>
+	    <script src="${resource(dir: 'js', file: 'bootstrap-typeahead.js')}"></script>
+	    <script src="${resource(dir: 'js', file: 'prefixfree.min.js')}"></script>
+    	<script src="${resource(dir: 'js', file: 'jquery.validate.js')}"></script>
+    	<script src="${resource(dir: 'js', file: 'jquery-ui.min.js')}"></script>
+    	<script type="text/javascript" charset="utf-8" language="javascript" src="${resource(dir: 'js', file: 'jquery.dataTables.js')}"></script>
+    	<script type="text/javascript" charset="utf-8" language="javascript" src="${resource(dir: 'js', file: 'DT_bootstrap.js')}"></script>
+    	<script type="text/javascript" src="${resource(dir: 'js', file: 'jquery.scrollto.js')}"></script>
+    	<script type="text/javascript" src="${resource(dir: 'js', file: 'highcharts.js')}"></script> 
+		<script type="text/javascript" src="${resource(dir: 'js/modules', file: 'exporting.js')}"></script>
     	
 
     	

@@ -15,8 +15,8 @@
     	<meta name="description" content="Control Academico">
     	<meta name="author" content="ResearchMobile">
     	<!--Estilos bootstrap-->
-    	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-    	<link href="css/ui-lightness/jquery-ui.css" rel="stylesheet">
+    	<link rel="stylesheet" type="text/css" href="${resource(dir: 'css', file: 'bootstrap.css')}">
+    	<link href="${resource(dir: 'css/ui-lightness', file: 'jquery-ui.css')}" rel="stylesheet">
 
     	
     	<style type="text/css">
@@ -29,15 +29,15 @@
   			}
     	</style>
 
-    	<link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css">
-    	<link rel="stylesheet" type="text/css" href="css/DT_bootstrap.css">
-        <link href="css/style.css" rel="stylesheet">
+    	<link rel="stylesheet" type="text/css" href="${resource(dir: 'css', file: 'bootstrap-responsive.css')}">
+    	<link rel="stylesheet" type="text/css" href="${resource(dir: 'css', file: 'DT_bootstrap.css')}">
+        <link rel="stylesheet" type="text/css" href="${resource(dir: 'css', file: 'style.css')}">
         
-    	<script src="js/jquery.js"></script>
-        <script src="js/jquery.blockUI.js"></script>
+    	<script src="${resource(dir: 'js', file: 'jquery.js')}"></script>
+        <script src="${resource(dir: 'js', file: 'jquery.blockUI.js')}"></script>
         
-    	<script type="text/javascript" src="js/jquery.ui.datepicker.js"></script>
-    	<script src="js/sammy.js" type="text/javascript"></script>
+    	<script type="text/javascript" src="${resource(dir: 'js', file: 'jquery.ui.datepicker.js')}"></script>
+    	<script src="${resource(dir: 'js', file: 'sammy.js')}" type="text/javascript"></script>
     	<!--Falta el shortcut icon-->
 
     	<script type="text/javascript">

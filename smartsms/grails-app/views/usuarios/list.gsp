@@ -2,31 +2,19 @@
 <%@ page import="smartsms.Usuarios" %>
 <%@ page import="smartsms.TiposUsuarios" %>
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'usuarios.label', default: 'Usuarios')}" />
-		<title><g:message code="default.list.label" args="[entityName]" /></title>
-	</head>
+<g:render template="/encabezado/header" />
 	<body>
           
          
-		<a href="#list-usuarios" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/usuarios')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-			</ul>
-		</div>
 		<div id="list-usuarios" class="content scaffold-list" role="main">
-			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
+			<h1>Usuarios</h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
                         <g:if test="${session.user}">
                           <div class="message" role="status">Usted inicio sesion como: ${session.user} | <g:link action="logout"> Logout</g:link></div>
                         </g:if>
-			<table>
+			<table cellpadding='0' cellspacing='0' border='0' class='table table-striped table-bordered' id='tablaAlumnos'>
 				<thead>
 					<tr>
 					
@@ -42,13 +30,14 @@
 						<g:sortableColumn property="aleatorio" title="${message(code: 'usuarios.aleatorio.label', default: 'Aleatorio')}" />
 					
 						<g:sortableColumn property="fechacreacion" title="${message(code: 'usuarios.fechacreacion.label', default: 'Fechacreacion')}" />
+                                                <th>Acciones</th>
 					
 					</tr>
 				</thead>
 				<tbody>
                                   
 				<g:each in="${usuariosInstanceList}" status="i" var="usuariosInstance">
-					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+					<tr>
                                           <td><g:link action="show" id="${usuariosInstance.id}">${i+1}</g:link></td>
 						<td>${fieldValue(bean: usuariosInstance, field: "idtipousuario")}</td>
 					
@@ -61,14 +50,35 @@
 						<td>${fieldValue(bean: usuariosInstance, field: "aleatorio")}</td>
 					
 						<td>${fieldValue(bean: usuariosInstance, field: "fechacreacion")}</td>
+                                                <td>
+                                                  <a rel='tooltip' title='Eliminar' onclick="<g:remoteFunction action='delete' id='${usuariosInstance.id}'/>"><i class="icon-remove"></i></a>
+                                                  <g:remoteLink update="[success: 'message', failure: 'error']" action="delete" id='${usuariosInstance.id}'> Delete Book</g:remoteLink>
+                                                </td>
 					
 					</tr>
 				</g:each>
 				</tbody>
 			</table>
+                        <div id="message" name="message" ></div>
+                        <div id="error" name="error" ></div>
+                        <script>
+                        $(document).ready(function() {
+                          desbloquearUi();
+                          $('a[rel=popover]').popover({placement: 'left'});
+                          $("a[rel='tooltip']").tooltip(); //tooltips bootstrap
+
+
+                            $('#tablaAlumnos').dataTable({            
+                              "sPaginationType": "bootstrap",
+                              "oLanguage": {
+                                "sLengthMenu": "_MENU_ registros por pagina"   
+                              }         
+                            });
+                        });
+                        </script>
 			<div class="pagination">
 				<g:paginate total="${usuariosInstanceTotal}" />
 			</div>
 		</div>
 	</body>
-</html>
+<g:render template="/footer/footer" />

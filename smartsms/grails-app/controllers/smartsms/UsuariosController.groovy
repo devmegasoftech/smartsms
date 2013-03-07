@@ -21,7 +21,7 @@ class UsuariosController {
             [usuariosInstanceList: Usuarios.list(params), usuariosInstanceTotal: Usuarios.count()]
          }
          else
-         redirect(action: "index")
+         response.sendRedirect("${request.contextPath}/")
          
     }
 
@@ -95,6 +95,7 @@ class UsuariosController {
         def usuariosInstance = Usuarios.get(id)
         if (!usuariosInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'usuarios.label', default: 'Usuarios'), id])
+            render("<script>alert('a1');</script>");
             redirect(action: "list")
             return
         }
@@ -102,12 +103,16 @@ class UsuariosController {
         try {
             usuariosInstance.delete(flush: true)
             flash.message = message(code: 'default.deleted.message', args: [message(code: 'usuarios.label', default: 'Usuarios'), id])
+            render("<script>alert('a2');");
             redirect(action: "list")
+            
         }
         catch (DataIntegrityViolationException e) {
             flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'usuarios.label', default: 'Usuarios'), id])
+            render("<script>alert('a3');");
             redirect(action: "show", id: id)
         }
+       
     }
     
     def login={
@@ -116,7 +121,7 @@ class UsuariosController {
             
             session.user="admin"
             //redirect(action: "list", params: params)
-            render("<script>setTimeout(\"window.location = 'list'\",1000); \$('.form').css('box-shadow','inset 0 0 10px 2px rgba(0,255,0,0.25), 0 0 50px 10px rgba(0,255,0,0.3)'); </script>");
+            render("<script>setTimeout(\"window.location = 'usuarios/list'\",1000); \$('.form').css('box-shadow','inset 0 0 10px 2px rgba(0,255,0,0.25), 0 0 50px 10px rgba(0,255,0,0.3)'); </script>");
         }
         else
         {
