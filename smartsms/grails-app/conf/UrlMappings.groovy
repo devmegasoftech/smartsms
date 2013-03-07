@@ -9,5 +9,6 @@ class UrlMappings {
 
 		"/"(view:"/usuarios/index")
 		"500"(view:'/error')
+                "/panel"(view:"/panel")
 	}
 }
